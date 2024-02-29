@@ -12,6 +12,7 @@ import ReqRestPassword from './Commponents/ReqRestPassword/ReqRestPassword'
 import RestPassword from './Commponents/RestPassword/RestPassword'
 import ChangePassword from './Commponents/ChangePassword/ChangePassword'
 import MasterLayout from './Shared/MasterLayout/MasterLayout'
+import ProductDetails from './Shared/ProductDetails/ProductDetails'
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
         {path : "brands" , element : <Brands/> },
         {path : "cart" , element : <Cart/> },
         {path : "allorders" , element : <AllOrders/> },
+        {path : "product-details/:id" , element : <ProductDetails/> },
 
       ]
     },

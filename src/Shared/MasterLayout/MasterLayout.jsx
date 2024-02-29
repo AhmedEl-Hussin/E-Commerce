@@ -6,9 +6,14 @@ import Footer from '../Footer/Footer'
 export default function MasterLayout() {
     return (
         <>
-            <Navbar/>
-            <Outlet/>
-            <Footer/>
+            <div className='bg-main'>
+                <Navbar/>
+                <div className='container'>
+                    <Outlet/>
+                </div>
+                <Footer/>
+            </div>
+
         </>
     )
 }
