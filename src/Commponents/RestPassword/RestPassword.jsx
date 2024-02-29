@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
 
@@ -9,6 +9,19 @@ export default function RestPassword() {
         handleSubmit,
         formState : { errors },
     } = useForm();
+    const [type, setType] = useState("password");
+    const [icon, setIcon] = useState(false);  
+
+
+    const handleToggle = () => {
+        if (type === "password") {
+            setIcon(true);
+            setType("text");
+        } else {
+            setIcon(false);
+            setType("password");
+        }
+    };
 
     return (
         <>
@@ -55,23 +68,34 @@ export default function RestPassword() {
                         </div>
                             
         {/* ************************* for input password ************************* */}
-                        <div className='form-group mt-2'>
-                            <label htmlFor="">New Password :</label>
-                            <input className='py-2 mt-1 form-control' 
-                                type="password" 
-                                {...register("password" , {
-                                    required : true,
-                                    pattern : /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{6,16}$/
-                                })}
-                            />
+                        <div className='d-flex'>
+                            <div className='w-100 mt-2'>
+                                <label htmlFor="">New Password :</label>
+                                <input className='py-2 mt-1 form-control' 
+                                    type={type} 
+                                    {...register("password" , {
+                                        required : true,
+                                        pattern : /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{6,16}$/
+                                    })}
+                                />
 
-                            {errors.password && errors.password.type === "required" && (
-                            <span className='text-danger mt-4'>Password is required</span>
-                            )}
+                                {errors.password && errors.password.type === "required" && (
+                                <span className='text-danger mt-4'>Password is required</span>
+                                )}
 
-                            {errors.password && errors.password.type === "pattern" && (
-                            <span className='text-danger mt-4'>Password must include at least one lowercase letter, one uppercase letter, one digit, one special character, and be at least 6 characters long</span>
-                            )}
+                                {errors.password && errors.password.type === "pattern" && (
+                                <span className='text-danger mt-4'>Password must include at least one lowercase letter, one uppercase letter, one digit, one special character, and be at least 6 characters long</span>
+                                )}
+                            </div>
+
+                            <span className="iconTogle-restPassword" onClick={handleToggle} >
+                                {icon ? (
+                                    <i className="fa-solid fa-eye"></i>
+                                ) : (
+                                    <i className="fa-solid fa-eye-slash"></i>
+                                )}
+                            </span>
+
                         </div>
 
         {/* ************************* for input Confirm password ************************* */}
