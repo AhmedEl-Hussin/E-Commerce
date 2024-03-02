@@ -10,7 +10,7 @@ export default function Cart() {
             </Helmet>
 
             <div className='cart-caption my-5 p-5'>
-                <h2 className='text-center fw-light puplic-color'> Welcome, Ahmed </h2>
+                <h2 className='text-center fw-light puplic-color'> Welcome, Lames </h2>
                 
                 <div className='mt-3'>
                     <h4>Shop Cart :</h4>
