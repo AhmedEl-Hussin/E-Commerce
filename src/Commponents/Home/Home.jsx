@@ -73,6 +73,8 @@ export default function Home() {
         {/* ################# to category slider ##################  */}
             <CategorySlider/>
 
+            <h1>Ahmed Moahmed hassan</h1>
+
             <div className='row gy-4'>
 
                 {products.map((product , index)=> 
